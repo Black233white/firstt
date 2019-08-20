@@ -1,1 +1,252 @@
-123
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>布局</title>
+</head>
+<style type="text/css">
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    /*统一页面中的字体*/
+    body{
+        font: 12px/1 微软雅黑;
+    }
+    .header{
+        width: 1200px;
+        height: 85px;
+        margin: 20px auto 0px;
+        background-color: #bfa;
+        padding-top: 35px;
+    }
+    .content{
+        width: 1200px;
+        height: 600px;
+        margin: 5px auto;
+        background-color: skyblue;
+    }
+    .footer{
+        width: 1200px;
+        height: 120px;
+        margin: 0 auto;
+        background-color: pink;
+    }
+    .left{
+        width: 300px;
+        height: 600px;
+        background-color: orange;
+        float: left;
+    }
+    .center{
+        width: 590px;
+        height: 600px;
+        margin: 0 5px;
+        background-color: salmon;
+        float: left;
+    }
+    .right{
+        width: 295px;
+        margin: 15px 5px 0 0;
+        /*height: 600px;
+        background-color: aquamarine;*/
+        float: left;
+    }
+    .center-top-l{
+        width: 280px;
+        height: 285px;
+        margin: 10px;
+        background-color: #42fff3;                  /*浮动之后的margin（外边距）并不会重合*/
+        float: left;
+    }
+    .center-top-r{
+        width: 280px;
+        height: 285px;
+        margin: 10px 10px 10px 0;
+        background-color: #42fff3;
+        float: left;
+    }
+    .center-bottom-l{
+        width: 280px;
+        height: 285px;
+        margin: 0 10px 10px 10px;
+        background-color: #fff7b1;
+        float: left;
+    }
+    .center-bottom-r{
+        width: 280px;
+        height: 285px;
+        margin: 0 10px 10px 0;
+        background-color: #fff7b1;
+        float: left;
+    }
+    .nav{
+        margin: 0 auto;
+        width: 1000px;                               /*由于设置了宽度，在IE6等浏览器中默认开启了hasLayout*/
+        background-color:deepskyblue;
+        list-style: none;
+        overflow: hidden;
+    }
+    /*.clearfix:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .clearfix{
+        zoom: 1;
+    }*/                                             /*这两部分用于解决高度塌陷，需要使用时包含clearfix类即可*/
+    .nav li{
+        float: left;
+        width: 12.5%;
+    }
+    .nav a{
+        display: block;                             /*将a转换为块元素*/
+        width: 100%;
+        text-decoration: none;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+    }
+    .nav a:hover{
+        background-color: #c00;
+    }
+    .nav a:active{
+        background-color: skyblue;
+    }
+    .right-header{
+        border-top: 2px #019e8b solid;
+        height: 48px;
+        background-color: #f5f5f5;
+        line-height: 48px;
+        padding: 0 20px 0 16px;
+    }
+    .right-header a{
+        float: right;
+        color: #ff1610;
+        font-size: 16px;
+    }
+    .right-header h3{
+        font:18px/48px 微软雅黑;                            /*font中不写的东西都会按默认值处理，比如行高/48px，若不写则会出现覆盖上面定义的行高，导致无法垂直居中*/
+    }
+    ul{
+        list-style: none;
+     }
+    .right-content ul{
+        border-bottom: 1px dashed #deddd9;
+    }
+    .right-content .no-border{
+        border: none;                                       /*取消最后一个ul的border*/
+    }
+    .right-content{
+        border: 1px #deddd9 solid;
+        padding: 0px 28px 0px 22px;
+    }
+    .right-content a{
+        color: black;
+        text-decoration: none;
+    }
+    .right-content .red{
+        color: red;
+        font-weight: bolder;
+    }
+    .right-content-right{
+        float: right;
+    }
+    .right-content h3{
+        margin: 15px 0;
+    }
+    .right-content li{
+        margin-bottom: 15px;
+    }
+    .right a:hover{
+        color: red;
+        text-decoration: underline;
+    }
+</style>
+<body>
+    <div class="header">
+        <ul class="nav">
+            <li><a href="1.html">首页</a> </li>
+            <li><a href="#2">新闻</a> </li>
+            <li><a href="#3">游戏</a> </li>
+            <li><a href="#4">音乐</a> </li>
+            <li><a href="1.html">首页</a> </li>
+            <li><a href="#6">新闻</a> </li>
+            <li><a href="#7">游戏</a> </li>
+            <li><a href="#8">音乐</a> </li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="left"></div>
+        <div class="center">
+            <div class="center-top-l"></div>
+            <div class="center-top-r"></div>
+            <div class="center-bottom-l"></div>
+            <div class="center-bottom-r"></div>
+        </div>
+        <div class="right">
+            <div class="right-header">
+                <a href="#r">开班计划</a>
+                <h3>近期开班</h3>
+            </div>
+            <div class="right-content">
+                <h3><a href="#">JavaEE+云计算-全程就业班</a></h3>
+                <ul>
+                    <li>
+                        <a href="#" class="right-content-right"><span class="red">预约报名</span></a>
+                        <a href="#">开班时间：<span class="red">2000-05-23</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="right-content-right"><span class="red">无座，名额爆满</span></a>
+                        <a href="#">开班时间：<span class="red">2000-05-23</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="right-content-right"><span>开班盛况</span></a>
+                        <a href="#">开班时间：<span>2000-05-23</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="right-content-right"><span>开班盛况</span></a>
+                        <a href="#">开班时间：<span>2000-05-23</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="right-content-right"><span>开班盛况</span></a>
+                        <a href="#">开班时间：<span>2000-05-23</span></a>
+                    </li>
+                </ul>
+                <h3><a href="#">JavaEE+云计算-全程就业班</a></h3>
+                <ul>
+                    <li>
+                        <a href="#" class="right-content-right"><span class="red">预约报名</span></a>
+                        <a href="#">开班时间：<span class="red">2000-05-23</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="right-content-right"><span>开班盛况</span></a>
+                        <a href="#">开班时间：<span>2000-05-23</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="right-content-right"><span>开班盛况</span></a>
+                        <a href="#">开班时间：<span>2000-05-23</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="right-content-right"><span>开班盛况</span></a>
+                        <a href="#">开班时间：<span>2000-05-23</span></a>
+                    </li>
+                </ul>
+                <h3><a href="#">JavaEE+云计算-全程就业班</a></h3>
+                <ul class="no-border">
+                    <li>
+                        <a href="#" class="right-content-right"><span class="red">预约报名</span></a>
+                        <a href="#">开班时间：<span class="red">2000-05-23</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="right-content-right"><span>开班盛况</span></a>
+                        <a href="#">开班时间：<span>2000-05-23</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>
